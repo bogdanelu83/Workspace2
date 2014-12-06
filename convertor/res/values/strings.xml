@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">convertor</string>
+    <string name="despre">DESPRE</string>
+    <string name="action_settings">settings</string>
+    <string name="author">author: Delia Andrei</string>
+    <string name="clock"></string>
+    <string name="title_activity_activity_despre">ActivityDespre</string>
+
+    <string name="title_activity_activity_convertor">ActivityConvertor</string>
+     <string name="hello_world">Hello world!</string>
+    <string name="from_currency">from CURRENCY</string>
+    <string name="to_currency">to CURRENCY</string>
+    <string name="conversie">CONVERSIE</string>
+    
+    <string-array name="currency_array">
+        <item>EUR</item>
+        <item>USD</item>
+        <item>GBP</item>
+        <item>RON</item>
+       
+    </string-array>
+    
+
+</resources>
