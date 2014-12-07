@@ -23,6 +23,40 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SetariActivity"
+            android:label="@string/title_activity_setari" >
+        </activity>
+        <activity
+            android:name=".DespreActivity"
+            android:label="@string/title_activity_despre" >
+             
+         <!-- e-mail -->    
+             <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        
+        
+        </activity>
+        
+        <activity
+            android:name=".CautaActivity"
+            android:label="@string/title_activity_cauta" >
+        </activity>
+        <activity
+            android:name=".IstoricActivity"
+            android:label="@string/title_activity_istoric" >
+        </activity>
+        <activity
+            android:name=".TaraActivity"
+            android:label="@string/title_activity_tara" >
+        </activity>
+        
+       
+        
+        
     </application>
 
 </manifest>

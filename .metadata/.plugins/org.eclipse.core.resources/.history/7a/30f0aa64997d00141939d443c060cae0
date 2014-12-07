@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">IP 2 TARA</string>
+    <string name="welcome">Bine ati venit!</string>
+    <string name="intro">Aceasta este o aplicatie creata pentru a localiza rapid un IP si a oferi informatii despre tara din care face parte</string>
+    <string name="buton_intra">       Intra       </string>
+    <string name="image_desc">image ip</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_setari">Setari</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_despre">Despre</string>
+
+</resources>

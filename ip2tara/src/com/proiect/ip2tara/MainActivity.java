@@ -1,6 +1,8 @@
 package com.proiect.ip2tara;
 
+
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,6 +30,22 @@ public class MainActivity extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        
+      //aici adaugam activitatea Despre in meniu   
+        if(id==R.id.action_despre) {
+    		Intent intent = new Intent (this, DespreActivity.class);
+    		startActivity (intent);
+    	}
+        
+        //aici adaugam activitatea Setari in meniu   
+        if(id==R.id.action_setari) {
+    		Intent intent = new Intent (this, SetariActivity.class);
+    		startActivity (intent);
+    	}
+        
+        
+        
+        
         if (id == R.id.action_settings) {
             return true;
         }

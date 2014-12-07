@@ -10,7 +10,7 @@
     tools:context="com.proiect.ip2tara.MainActivity" >
 
     <TextView
-        android:id="@+id/welcome"
+        android:id="@+id/autori"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
