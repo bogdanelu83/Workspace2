@@ -1,0 +1,207 @@
+package com.proiect.ip2tara;
+
+
+
+import java.io.IOException;
+import java.io.StringReader;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
+
+import android.app.Activity;
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.Intent;
+import android.content.res.Resources;
+import android.content.res.XmlResourceParser;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Bundle;
+import android.provider.BaseColumns;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+
+import android.view.View;
+
+
+public class MainActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        
+      //aici adaugam activitatea Despre in meniu   
+        if(id==R.id.action_despre) {
+    		Intent intent = new Intent (this, DespreActivity.class);
+    		startActivity (intent);
+    	}
+        
+        //aici adaugam activitatea Setari in meniu   
+        if(id==R.id.action_setari) {
+    		Intent intent = new Intent (this, SetariActivity.class);
+    		startActivity (intent);
+    	}
+        
+        
+        
+        
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+  //trecerea de la o activitate la alta  
+    public void sendMessage(View view) 
+    {
+        Intent intent = new Intent(MainActivity.this, CautaActivity.class);
+        startActivity(intent);
+    }
+
+
+    
+
+    
+ //Tabela Tari
+    public static final class CountryColumns implements BaseColumns {
+     
+        private CountryColumns () {}
+      
+        public static final String TARI = "tari";
+      
+   
+        public static final String COUNTRYCODE = "countryCode";        
+        public static final String COUNTRYNAME = "countryName";
+        public static final String CURRENCYCODE = "currencyCode";
+        public static final String POPULATION = "population";
+        public static final String CAPITAL = "capital";
+        public static final String CONTINENTNAME = "continentName";
+      
+    }
+    
+      
+
+    
+    //This class helps open, create, and upgrade the database file.
+   
+   @SuppressWarnings("unused")
+private static class BDHelper extends SQLiteOpenHelper {
+        
+       private final Context fContext;
+        
+       BDHelper(Context context) {
+           super(context, "BDTari", null, 1);
+           fContext = context;
+       } 
+    
+       @Override
+       public void onCreate(SQLiteDatabase db) {
+           db.execSQL("CREARE TABELA tari ("
+                   + "_id INTEGER PRIMARY KEY,"
+                   + "countryCode TEXT,"
+                   + "countryName TEXT,"
+                   + "currencyCode TEXT,"
+                   + "population TEXT,"
+                   + "capital TEXT,"
+                   + "continentName TEXT"                 
+                   + ");");
+    
+           //Adaugare default countries to tari
+           ContentValues _Values = new ContentValues();                            
+           //Get xml resource file
+           Resources res = fContext.getResources();
+            
+           //Open xml file
+           XmlResourceParser _xml = res.getXml(R.xml.tari);
+           try
+           {
+               //Check for end of document
+               int eventType = _xml.getEventType();
+               while (eventType != XmlPullParser.END_DOCUMENT) {
+                   //Search for record tags
+                   if ((eventType == XmlPullParser.START_TAG) &&(_xml.getName().equals("country"))){
+                       //Record tag found, now get values and insert record
+                       String _CountryCode = _xml.getAttributeValue(null, CountryColumns.COUNTRYCODE);
+                       String _CountryName = _xml.getAttributeValue(null, CountryColumns.COUNTRYNAME);
+                       String _CurrencyCode = _xml.getAttributeValue(null, CountryColumns.CURRENCYCODE);
+                       String _Population = _xml.getAttributeValue(null, CountryColumns.POPULATION);
+                       String _Capital = _xml.getAttributeValue(null, CountryColumns.CAPITAL);
+                       String _ContinentName = _xml.getAttributeValue(null, CountryColumns.CONTINENTNAME);
+                   
+                       
+                       _Values.put(CountryColumns.COUNTRYCODE, _CountryCode);
+                       _Values.put(CountryColumns.COUNTRYNAME, _CountryName);
+                       _Values.put(CountryColumns.CURRENCYCODE, _Population);
+                       _Values.put(CountryColumns.POPULATION, _CountryCode);
+                       _Values.put(CountryColumns.CAPITAL, _Capital);
+                       _Values.put(CountryColumns.CONTINENTNAME, _ContinentName);
+                       
+                       
+                       
+                       
+                       
+                       db.insert(CountryColumns.TARI, null, _Values);              
+                   }
+                   eventType = _xml.next();
+               }
+           }
+           //Catch errors
+           catch (XmlPullParserException e)
+           {       
+               Log.e(TAG, e.getMessage(), e);
+           }
+           catch (IOException e)
+           {
+               Log.e(TAG, e.getMessage(), e);
+                
+           }           
+           finally
+           {           
+               //Close the xml file
+               _xml.close();
+           }
+       }
+    
+       // Update database to latest version 
+       @Override
+       public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+           //Crude update, make sure to implement a correct one when needed.
+                        
+           Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
+                   + newVersion + ", which will destroy all old data");
+           db.execSQL("DROP TABLE IF EXISTS tari");
+           onCreate(db);
+       }
+   }
+
+
+
+
+
+
+
+
+}
+
+
+
+
