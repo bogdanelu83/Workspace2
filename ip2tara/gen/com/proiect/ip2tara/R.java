@@ -26,19 +26,20 @@ public final class R {
         public static final int ip_img=0x7f020001;
     }
     public static final class id {
-        public static final int action_despre=0x7f09000a;
-        public static final int action_setari=0x7f09000b;
-        public static final int action_settings=0x7f090009;
-        public static final int app_name=0x7f09000c;
+        public static final int action_despre=0x7f09000b;
+        public static final int action_setari=0x7f09000c;
+        public static final int action_settings=0x7f09000a;
+        public static final int app_name=0x7f09000d;
         public static final int autori=0x7f090002;
         public static final int autori_nume=0x7f090003;
         public static final int buton_tara=0x7f090001;
         public static final int contact=0x7f090004;
         public static final int contact_text=0x7f090005;
-        public static final int imageView1=0x7f090008;
-        public static final int intro=0x7f090007;
+        public static final int imageView1=0x7f090009;
+        public static final int intro=0x7f090008;
         public static final int ip_address=0x7f090000;
         public static final int sendEmail=0x7f090006;
+        public static final int welcome=0x7f090007;
     }
     public static final class layout {
         public static final int activity_cauta=0x7f030000;
@@ -74,6 +75,8 @@ public final class R {
         public static final int image_desc=0x7f060004;
         public static final int intro=0x7f060002;
         public static final int ip_text=0x7f060013;
+        public static final int spinner_tari=0x7f060018;
+        public static final int tari=0x7f060017;
         public static final int title_activity_acces_bd=0x7f060016;
         public static final int title_activity_cauta=0x7f06000b;
         public static final int title_activity_db=0x7f060015;

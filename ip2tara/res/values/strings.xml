@@ -24,5 +24,8 @@
     <string name="buton_tara">       Afla Tara       </string>
     <string name="title_activity_db">DB</string>
     <string name="title_activity_acces_bd">AccesBD</string>
+    
+    <string name="tari">Selectati o tara pentru a vizualiza detaliile:</string>
+    <string name="spinner_tari">Tara</string>
 
 </resources>
