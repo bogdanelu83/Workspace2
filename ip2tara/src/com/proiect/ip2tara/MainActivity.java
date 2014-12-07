@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import android.view.View;
+
 
 public class MainActivity extends Activity {
 
@@ -50,5 +52,12 @@ public class MainActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+  //trecerea de la o activitate la alta  
+    public void sendMessage(View view) 
+    {
+        Intent intent = new Intent(MainActivity.this, CautaActivity.class);
+        startActivity(intent);
     }
 }
