@@ -54,6 +54,10 @@
             android:name=".DBActivity"
             android:label="@string/title_activity_db" >
         </activity>
+        <activity
+            android:name=".AccesBDActivity"
+            android:label="@string/title_activity_acces_bd" >
+        </activity>
     </application>
 
 </manifest>

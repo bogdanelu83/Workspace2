@@ -1,0 +1,60 @@
+package com.proiect.ip2tara;
+
+import android.app.Activity;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
+public class AccesBDActivity extends SQLiteOpenHelper {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_accesbd);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.acces_bd, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+}
+
+/*
+public class FeedReaderDbHelper extends SQLiteOpenHelper {
+    // If you change the database schema, you must increment the database version.
+    public static final int DATABASE_VERSION = 1;
+    public static final String DATABASE_NAME = "FeedReader.db";
+
+    public FeedReaderDbHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL(SQL_CREATE_ENTRIES);
+    }
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // This database is only a cache for online data, so its upgrade policy is
+        // to simply to discard the data and start over
+        db.execSQL(SQL_DELETE_ENTRIES);
+        onCreate(db);
+    }
+    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        onUpgrade(db, oldVersion, newVersion);
+    }
+}
+
+*/

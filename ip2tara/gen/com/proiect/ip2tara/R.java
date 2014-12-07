@@ -49,13 +49,14 @@ public final class R {
         public static final int activity_tara=0x7f030005;
     }
     public static final class menu {
-        public static final int cauta=0x7f070000;
-        public static final int db=0x7f070001;
-        public static final int despre=0x7f070002;
-        public static final int istoric=0x7f070003;
-        public static final int main=0x7f070004;
-        public static final int setari=0x7f070005;
-        public static final int tara=0x7f070006;
+        public static final int acces_bd=0x7f070000;
+        public static final int cauta=0x7f070001;
+        public static final int db=0x7f070002;
+        public static final int despre=0x7f070003;
+        public static final int istoric=0x7f070004;
+        public static final int main=0x7f070005;
+        public static final int setari=0x7f070006;
+        public static final int tara=0x7f070007;
     }
     public static final class string {
         public static final int action_despre=0x7f050006;
@@ -73,6 +74,7 @@ public final class R {
         public static final int image_desc=0x7f050004;
         public static final int intro=0x7f050002;
         public static final int ip_text=0x7f050013;
+        public static final int title_activity_acces_bd=0x7f050016;
         public static final int title_activity_cauta=0x7f05000b;
         public static final int title_activity_db=0x7f050015;
         public static final int title_activity_despre=0x7f05000a;

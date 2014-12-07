@@ -23,6 +23,5 @@
     <string name="ip_text">Introduceti adresa IP in casuta de mai jos si apasati, apoi, butonul Afla Tara:</string>
     <string name="buton_tara">       Afla Tara       </string>
     <string name="title_activity_db">DB</string>
-    <string name="title_activity_acces_bd">AccesBD</string>
 
 </resources>
