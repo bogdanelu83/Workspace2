@@ -1,0 +1,147 @@
+package com.myapp;
+
+import android.os.Bundle;
+import android.app.Activity;
+
+import android.content.Context;
+import android.database.Cursor;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.CursorAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
+public class myDBClass extends Activity  {
+	    
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        final myDBClass myDb = new myDBClass(this);
+        
+        /** for Insert Statement
+         * 	myDb.InsertData("1", "TH", "Thailand");
+	        myDb.InsertData("2", "VN", "Vietnam");
+	        myDb.InsertData("3", "ID", "Indonesia");
+	        myDb.InsertData("4", "LA", "Laos");
+	        myDb.InsertData("5", "MY", "Malaysia");
+         */
+
+       
+        // listView1
+        final ListView lisView1 = (ListView)findViewById(R.id.listView1); 
+        
+        Cursor c = myDb.SelectData();
+        	
+		lisView1.setAdapter(new CountryAdapter(this, c));
+		
+		
+    }
+    
+    public class CountryAdapter extends CursorAdapter 
+    {
+    	private Cursor cursor;
+
+        public CountryAdapter(Context context, Cursor cur) {
+			super(context, cur);
+			cursor = cur;
+			// TODO Auto-generated constructor stub
+		}
+
+	        
+		@Override
+		public void bindView(View view, Context context, Cursor cursor) {
+			// TODO Auto-generated method stub
+			
+			// ColID
+			TextView txtID = (TextView) view.findViewById(R.id.ColID);
+			txtID.setText(cursor.getString(cursor.getColumnIndex("ID")));
+			
+			// ColCode
+			TextView txtCode = (TextView) view.findViewById(R.id.ColCode);
+			txtCode.setText(cursor.getString(cursor.getColumnIndex("Code")));
+			
+			// ColCountry
+			TextView txtCountry = (TextView) view.findViewById(R.id.ColCountry);
+			txtCountry.setText(cursor.getString(cursor.getColumnIndex("Country")));
+		}
+
+		@Override
+		public View newView(Context context, Cursor cursor, ViewGroup parent) {
+			// TODO Auto-generated method stub
+			LayoutInflater inflater = LayoutInflater.from(context);
+			View view = inflater.inflate(R.layout.activity_column, parent, false);
+			bindView(view, context, cursor);
+			return view;
+		}
+		
+
+        public int getCount() {
+        	// TODO Auto-generated method stub
+        	return cursor.getCount();
+        }
+
+ 
+        public Object getItem(int position) {
+        	// TODO Auto-generated method stub
+            return position;
+        }
+ 
+        public long getItemId(int position) {
+        	// TODO Auto-generated method stub
+            return position;
+        }
+
+        /* or used this getView()
+		public View getView(final int position, View convertView,
+				ViewGroup parent) {
+
+			// TODO Auto-generated method stub
+			CountryHolder holder = null;
+
+			if (convertView == null) {
+
+				LayoutInflater inflater = (LayoutInflater) context
+						.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+				convertView = inflater.inflate(R.layout.activity_column, null);
+
+				holder = new CountryHolder();
+				holder.ID = (TextView) convertView.findViewById(R.id.ColID);
+				holder.Code = (TextView) convertView.findViewById(R.id.ColCode);
+				holder.Country = (TextView) convertView
+						.findViewById(R.id.ColCountry);
+
+				convertView.setTag(holder);
+			} else {
+				holder = (CountryHolder) convertView.getTag();
+			}
+			
+			cursor.moveToPosition(position);
+			holder.ID.setText(cursor.getString(cursor.getColumnIndex("ID")));
+			holder.Code.setText(cursor.getString(cursor.getColumnIndex("Code")));
+			holder.Country.setText(cursor.getString(cursor.getColumnIndex("Country")));
+
+			return convertView;
+
+		}
+		*/
+
+
+    }
+    
+	public class CountryHolder {
+		TextView ID;
+		TextView Code;
+		TextView Country;
+	}
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_main, menu);
+        return true;
+    }
+    
+}
