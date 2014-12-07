@@ -43,3 +43,8 @@ Temporary Items
 .apdisk
 
 .metadata/.plugins/org.eclipse.cdt.core/.log
+.metadata/.plugins/org.eclipse.cdt.core/.log
+*.log
+*.log
+.metadata/.plugins/org.eclipse.cdt.core/.log
+.metadata/.plugins/org.eclipse.cdt.core/.log
