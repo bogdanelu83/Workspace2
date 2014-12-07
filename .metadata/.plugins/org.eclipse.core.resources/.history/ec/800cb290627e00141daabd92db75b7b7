@@ -28,6 +28,4 @@
     <string name="tari">Selectati o tara pentru a vizualiza detaliile:</string>
     <string name="spinner_tari">Tara</string>
 
-    
-    <string name="ip_gresit_txt">Adresa IP invalida!</string>
 </resources>

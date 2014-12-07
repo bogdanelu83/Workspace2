@@ -74,6 +74,7 @@ public final class R {
         public static final int hello_world=0x7f060009;
         public static final int image_desc=0x7f060004;
         public static final int intro=0x7f060002;
+        public static final int ip_gresit_txt=0x7f060019;
         public static final int ip_text=0x7f060013;
         public static final int spinner_tari=0x7f060018;
         public static final int tari=0x7f060017;

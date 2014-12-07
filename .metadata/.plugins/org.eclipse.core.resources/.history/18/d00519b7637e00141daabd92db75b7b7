@@ -26,7 +26,7 @@
          android:id="@+id/buton_tara"
          android:layout_width="284dp"
          android:layout_height="wrap_content"
-         android:onClick="ip2Long"
+         android:onClick="sendMessage"
          android:text="@string/buton_tara" />
 
 </LinearLayout>
