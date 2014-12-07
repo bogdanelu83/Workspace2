@@ -48,3 +48,4 @@ Temporary Items
 *.log
 .metadata/.plugins/org.eclipse.cdt.core/.log
 .metadata/.plugins/org.eclipse.cdt.core/.log
+.metadata/.plugins/org.eclipse.cdt.core/.log
