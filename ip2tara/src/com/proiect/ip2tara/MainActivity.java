@@ -60,19 +60,28 @@ public class MainActivity extends Activity {
     		startActivity (intent);
     	}
         
-        //aici adaugam activitatea Setari in meniu   
+        //aici adaugam activitatea Setari in meniu 
         if(id==R.id.action_setari) {
     		Intent intent = new Intent (this, SetariActivity.class);
     		startActivity (intent);
     	}
-        
-        
-        
+      //aici adaugam activitatea Istoric in meniu 
+        if(id==R.id.action_istoric) {
+    		Intent intent = new Intent (this, IstoricActivity.class);
+    		startActivity (intent);
+    	}
+      //aici adaugam activitatea Tari in meniu 
+        if(id==R.id.action_tari) {
+    		Intent intent = new Intent (this, TaraActivity.class);
+    		startActivity (intent);
+    	}
+                      
      
         return super.onOptionsItemSelected(item);
     }
 
-  //trecerea de la o activitate la alta  
+  
+    //trecerea de la o activitate la alta prin buton  
     public void sendMessage(View view) 
     {
         Intent intent = new Intent(MainActivity.this, CautaActivity.class);

@@ -3,9 +3,27 @@
     tools:context="com.proiect.ip2tara.IstoricActivity" >
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_despre"
         android:orderInCategory="100"
         android:showAsAction="never"
-        android:title="@string/action_settings"/>
+        android:title="@string/action_despre"/>
+    
+    <item
+        android:id="@+id/action_setari"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/action_setari"/>
+    
+    <item
+        android:id="@+id/action_istoric"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/action_istoric"/>
+    
+    <item
+        android:id="@+id/action_tari"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/action_tari"/>
 
 </menu>

@@ -9,6 +9,8 @@
     <string name="action_settings">Settings</string>
     <string name="action_despre">Despre</string>
     <string name="action_setari">Setari</string>
+    <string name="action_istoric">Istoric</string>
+    <string name="action_tari">Informatii Tari</string>
     <string name="title_activity_setari">Setari</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_despre">Despre</string>
@@ -30,4 +32,8 @@
 
     
     <string name="ip_gresit_txt">Adresa IP invalida!</string>
+    
+     <string name="istoric_text">Aici vom afisa ultimele 10 cautari ip-tara.</string>
+      <string name="setari_text">Aici utilizatorul va putea selecta limba si alte optiuni.</string>
+      <string name="tari_text">Aici vom utiliza un adaptor pentru a prelua tarile dupa nume din database \n(care se va crea folosing fisierul tari.xml din res/xml. \nSe vor afisa detaliile pentru tara selectata).</string>
 </resources>
