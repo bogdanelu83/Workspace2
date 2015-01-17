@@ -34,7 +34,16 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/ip_address"
         android:layout_below="@+id/ip_address"
-        android:onClick="ip2Long"
+        android:onClick="getCountry"
         android:text="@string/buton_tara" />
+    
+    <Button
+        android:id="@+id/buton_detalii"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buton_tara"
+        android:layout_below="@+id/buton_tara"
+        android:onClick="getCountryDetails"
+        android:text="@string/buton_detalii" />
 
 </RelativeLayout>

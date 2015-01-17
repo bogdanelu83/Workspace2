@@ -7,14 +7,17 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
+import com.proiect.db.GeoIPDataSource;
+
 import android.os.AsyncTask;
 
-public class GetExternalIP extends AsyncTask<String, Integer, String> {
+public class GetExternalIPAsync extends AsyncTask<String, Integer, String> {
 	
 	String ip;
 
 	@Override
 	protected String doInBackground(String... params) {
+		
 		String remoteurl = "http://wtfismyip.com/text";
 		try {
 			HttpClient httpclient = new DefaultHttpClient();

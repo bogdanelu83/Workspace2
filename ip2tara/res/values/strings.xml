@@ -25,6 +25,6 @@
     <string name="title_activity_db">DB</string>
     <string name="title_activity_acces_bd">AccesBD</string>
     <string name="ip_gresit_txt">Adresa IP invalida!</string>
-    <string name="edit_text_ip_hint">Please wait...</string>
-
+    <string name="edit_text_ip_hint">Please wait&#8230;</string>
+	<string name="buton_detalii">Detalii tara</string>
 </resources>

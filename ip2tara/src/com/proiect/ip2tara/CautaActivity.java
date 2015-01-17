@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import com.proiect.db.GeoIPDataSource;
 import com.proiect.ip2tara.R.string;
 
 import android.app.Activity;
@@ -15,7 +16,6 @@ import android.os.Message;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -32,7 +32,8 @@ import android.widget.Toast;
 @SuppressWarnings("unused")
 public class CautaActivity extends Activity {
 	EditText txtIP;
-	
+	String country;
+	private GeoIPDataSource datasource;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -45,6 +46,7 @@ public class CautaActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
+		datasource = new GeoIPDataSource(this);
 		getMenuInflater().inflate(R.menu.cauta, menu);
 		return true;
 	}
@@ -60,8 +62,14 @@ public class CautaActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-
-	public void ip2Long(View view) throws IOException {
+	public void getCountry(View view) throws IOException{
+		long ipToLookup = ip2Long();
+    	datasource.open();
+    	country = datasource.getCountryByIP(Integer.valueOf(String.valueOf(ipToLookup)));
+    	datasource.close();
+		Toast.makeText(this, country, Toast.LENGTH_LONG).show();
+	}
+	public long ip2Long() {
 		String str = txtIP.getText().toString();
 		if (str.isEmpty())
 			Toast.makeText(this, R.string.ip_gresit_txt, Toast.LENGTH_LONG)
@@ -94,40 +102,13 @@ public class CautaActivity extends Activity {
 			long lng_ip_low;
 			long lng_ip_high;
 
-			Toast.makeText(this, String.valueOf(ip_long), Toast.LENGTH_LONG).show();
-			
-			/*Toast.makeText(this, getFilesDir().toString(), Toast.LENGTH_LONG)
-					.show();*/
-
-			/*File file = new File("./bin/GeoIP.csv");
-			BufferedReader reader = new BufferedReader(new FileReader(file));
-			reader.readLine();
-
-			Toast.makeText(this, "citesc", Toast.LENGTH_LONG).show();
-
-			String line = null;
-			while ((line = reader.readLine()) != null) {
-
-				String[] RowData = line.split(",");
-				ip_low = RowData[0];
-				ip_high = RowData[1];
-				ip_long_low = RowData[2];
-				ip_long_high = RowData[3];
-				ip_iso = RowData[4];
-				ip_name = RowData[5];
-
-				lng_ip_low = Long.parseLong(ip_long_low);
-				lng_ip_high = Long.parseLong(ip_long_high);
-				if (lng_ip_low < ip_long && ip_long > lng_ip_high)
-
-					Toast.makeText(this, ip_name, Toast.LENGTH_LONG).show();
-			}
-			reader.close();*/
+			return ip_long;
 		}
+		return 0;
 	}
 	
 	public void getCurrentIP() {
-        GetExternalIP asyncTask =  new GetExternalIP(){
+        GetExternalIPAsync asyncTask =  new GetExternalIPAsync(){
        	@Override
        	protected void onPostExecute(String result) {
        		CautaActivity.this.txtIP.setText(result);
@@ -137,4 +118,9 @@ public class CautaActivity extends Activity {
        asyncTask.execute("test");
    }
 
+	public void getCountryDetails(View view){
+		Intent intent = new Intent(CautaActivity.this, TaraActivity.class);
+		intent.putExtra("COUNTRY", country);
+		startActivity(intent);
+	}
 }
